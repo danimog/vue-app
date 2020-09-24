@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <img class="logo" src="./assets/images/logo_parco.jpg" />
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/listaSentieri">Tutti i sentieri</router-link>
     </div>
     <router-view />
   </div>
@@ -29,4 +30,12 @@
 #nav a.router-link-exact-active {
   color: #42b983;
 }
+</style>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+</style>
+
+<style>
+@import "./assets/css/stile.css";
 </style>
