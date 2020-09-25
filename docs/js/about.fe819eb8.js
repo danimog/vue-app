@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{5750:function(t,e,n){"use strict";n.r(e);var s=function(){var t=this,e=t.$createElement;t._self._c;return t._m(0)},a=[function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",{staticClass:"about"},[n("h1",[t._v("Lista dei sentieri")])])}],i=n("2877"),r={},u=Object(i["a"])(r,s,a,!1,null,null,null);e["default"]=u.exports}}]);
-//# sourceMappingURL=about.fe819eb8.js.map
