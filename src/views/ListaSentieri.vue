@@ -62,7 +62,7 @@
                       <img
                         class="img-fluid headerIcon"
                         alt="andata"
-                        src="../assets/images/icons_w/time_andata.png"
+                        src="../assets/images/icons_w/time_a.png"
                       />
                       <h6>1h45'</h6>
                     </div>
@@ -106,7 +106,7 @@
                       <h6>+312m</h6>
                     </div>
                     <div>
-                      <img class="img-fluid headerIcon" alt="andata" src="../assets/images/icons_w/time_andata.png" />
+                      <img class="img-fluid headerIcon" alt="andata" src="../assets/images/icons_w/time_a.png" />
                       <h6>1h45'</h6>
                     </div>
                     <div>
@@ -146,7 +146,7 @@
                       <h6>+312m</h6>
                     </div>
                     <div>
-                      <img class="img-fluid headerIcon" alt="andata" src="../assets/images/icons_w/time_andata.png" />
+                      <img class="img-fluid headerIcon" alt="andata" src="../assets/images/icons_w/time_a.png" />
                       <h6>1h45'</h6>
                     </div>
                     <div>

@@ -3,7 +3,8 @@
     <img class="logo" src="./assets/images/logo_parco.jpg" />
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/listaSentieri">Tutti i sentieri</router-link>
+      <!-- <router-link to="/listaSentieri">Tutti i sentieri</router-link> | -->
+      <router-link to="/tuttiSentieri">Lista sentieri</router-link>
     </div>
     <router-view />
   </div>
