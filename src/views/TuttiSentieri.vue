@@ -44,13 +44,13 @@
               </p> -->
               <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
 
-              <p><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> Lunghezza: {{ sentiero.sv_l }} m</p>
-              <p v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> Dislivello : {{ sentiero.dslv }} +</p>
-              
-              <p>Tempo 
+              <p>
+                <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
+                <span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span></p>
+              <p>
                 <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} 
                 <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
-                </p>
+              </p>
               <template v-slot:footer>
                 <div
                   :class="{
@@ -98,6 +98,10 @@ export default {
 
 .card-header {
   padding: 0%;
+}
+
+.card-body{
+  padding: .3em;
 }
 
 .card-footer {
