@@ -11,12 +11,17 @@
             >
               <template v-slot:header>
                 <div
+                  style="display: flex; justify-content: space-around;"
                   :class="{
                     headerCardEE: sentiero.df_s == 'EE',
                     headerCardE: sentiero.df_s == 'E',
                     headerCardT: sentiero.df_s == 'T'
                   }"
                 >
+                <div>
+                  <span class="textHeader"> {{ sentiero.sent }} </span>
+                </div>
+                <div>
                 <!-- le icone saranno da rendere dinamiche -->
                   <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons_w/hiking.png" />
                   <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons_w/biking.png" />
@@ -30,27 +35,25 @@
                   <img class="img-fluid headerIcon" alt="difficolta"
                     v-else-if ="sentiero.df_s == 'T'" src="../assets/images/icons_w/difficolta_T.png" 
                   />
+                  </div>
                 </div>
               </template>
               <b-card-text>
-                  <h5>{{ sentiero.d_tpp }}</h5>
-                  <!-- <p
-                    :class="{
-                      coloreEE: sentiero.df_s == 'EE',
-                      coloreE: sentiero.df_s == 'E',
-                      coloreT: sentiero.df_s == 'T'
-                    }"
-                  >
-                    Difficoltà: {{ sentiero.df_s }}
-                  </p> -->
+                <h5>{{ sentiero.d_tpp }}</h5>
                   <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
-
-                  <p>
-                    <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
-                    <span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span>
-                    <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} 
-                    <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
-                  </p>
+                <!-- <p>
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
+                  <span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span>
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} 
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
+                </p> -->
+                <div class="my-card-text">
+                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m</div>
+                  <div><span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span></div>
+                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} </div>
+                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}</div>
+                </div>
+                
               </b-card-text>
               <template v-slot:footer>
                 <div
@@ -86,6 +89,11 @@ p{
   margin-bottom: 0;
   padding-bottom: 5px;
 }
+
+h5{
+  margin-bottom: 1rem;
+}
+
 .coloreEE {
   color: orange;
 }
@@ -115,6 +123,22 @@ p{
   padding: 0%;
 }
 
+.textHeader{
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.textHeader::before{
+  content:"\00a0 \00a0 \00a0 \00a0 \00a0";
+  background-color: red;
+}
+
+.textHeader::after{
+  content:"\00a0 \00a0 \00a0 \00a0 \00a0";
+  background-color: red;
+}
 
 .headerCardT {
   background-color: lightskyblue;
@@ -137,7 +161,12 @@ p{
 .headerIcon {
   max-height: 32px;
   padding: 0;
-  margin: 0 5px;
+  margin: 0 2px;
+}
+
+.my-card-text{
+  display: flex;
+  justify-content: center;
 }
 
 .footerCardClose {
