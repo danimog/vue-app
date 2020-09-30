@@ -32,25 +32,27 @@
                   />
                 </div>
               </template>
-              <h5>{{ sentiero.d_tpp }}</h5>
-              <!-- <p
-                :class="{
-                  coloreEE: sentiero.df_s == 'EE',
-                  coloreE: sentiero.df_s == 'E',
-                  coloreT: sentiero.df_s == 'T'
-                }"
-              >
-                Difficoltà: {{ sentiero.df_s }}
-              </p> -->
-              <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
+              <b-card-text>
+                  <h5>{{ sentiero.d_tpp }}</h5>
+                  <!-- <p
+                    :class="{
+                      coloreEE: sentiero.df_s == 'EE',
+                      coloreE: sentiero.df_s == 'E',
+                      coloreT: sentiero.df_s == 'T'
+                    }"
+                  >
+                    Difficoltà: {{ sentiero.df_s }}
+                  </p> -->
+                  <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
 
-              <p>
-                <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
-                <span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span></p>
-              <p>
-                <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} 
-                <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
-              </p>
+                  <p>
+                    <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
+                    <span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span></p>
+                  <p>
+                    <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} 
+                    <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
+                  </p>
+              </b-card-text>
               <template v-slot:footer>
                 <div
                   :class="{
@@ -81,6 +83,10 @@ export default {
 </script>
 
 <style scoped>
+p{
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
 .coloreEE {
   color: orange;
 }
