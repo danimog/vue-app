@@ -39,7 +39,7 @@
                 </div>
               </template>
               <b-card-text>
-                <h5>{{ sentiero.d_tpp }}</h5>
+                <h5>-{{ sentiero.d_tpp }}</h5>
                   <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
                 <!-- <p>
                   <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
