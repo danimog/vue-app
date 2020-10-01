@@ -24,6 +24,12 @@ const routes = [
     name: "TuttiSentieri",
     component: () =>
       import(/* webpackChunkName: "sentieri" */ "../views/TuttiSentieri.vue")
+  },
+  {
+    path: "/sceltaPaesi",
+    name: "SceltaPaesi",
+    component: () =>
+      import(/* webpackChunkName: "sentieri" */ "../views/SceltaPaesi.vue")
   }
 ];
 

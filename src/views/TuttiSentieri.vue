@@ -26,6 +26,7 @@
                   <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons_w/hiking.png" />
                   <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons_w/biking.png" />
                 <!-- fine icone dinamiche -->
+
                   <img class="img-fluid headerIcon" alt="difficolta"
                     v-if="sentiero.df_s == 'EE'" src="../assets/images/icons_w/difficolta_EE.png"
                   />
@@ -39,7 +40,7 @@
                 </div>
               </template>
               <b-card-text>
-                <h5>-{{ sentiero.d_tpp }}</h5>
+                <h5>{{ sentiero.d_tpp }}</h5>
                   <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
                 <!-- <p>
                   <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
@@ -61,7 +62,7 @@
                     footerCardClose: sentiero.chiuso == '1'
                   }"
                 >
-                <h6 v-if="sentiero.chiuso == '1' ">Attenzione: SENTIERO CHIUSO!</h6>
+                <h6 v-if="sentiero.chiuso == '1' "><strong>Attenzione: SENTIERO CHIUSO!</strong></h6>
                 </div>
               </template>
             </b-card>
@@ -106,7 +107,7 @@ h5{
 
 .card-deck .card {
   flex: 1 0 30%;
-  margin: 0.5em;
+  margin: 1em;
 }
 
 .card-header {

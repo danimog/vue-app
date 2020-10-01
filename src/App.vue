@@ -4,7 +4,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/listaSentieri">Tutti i sentieri</router-link> |
-      <router-link to="/tuttiSentieri">Lista sentieri</router-link>
+      <router-link to="/tuttiSentieri">Lista sentieri</router-link> |
+      <router-link to="/sceltaPaesi">Seleziona Paesi</router-link>
     </div>
     <router-view />
   </div>
@@ -20,17 +21,18 @@
 }
 
 #nav {
-  padding: 30px;
+  padding-top: 20px;
+  padding-bottom: 0;
 }
 
 #nav a {
   font-weight: bold;
-  color: blue;
+  color: black;
 }
 
 #nav a.router-link-exact-active {
   /* color: #42b983; */
-  color: darkred;
+  color: darkgoldenrod;
 }
 </style>
 
