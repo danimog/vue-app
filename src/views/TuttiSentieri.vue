@@ -15,32 +15,39 @@
                   :class="{
                     headerCardEE: sentiero.df_s == 'EE',
                     headerCardE: sentiero.df_s == 'E',
-                    headerCardT: sentiero.df_s == 'T'
+                    headerCardT: sentiero.df_s == 'T',
+                    headerCardClosed : sentiero.chiuso == '1'
                   }"
                 >
                 <div>
                   <span class="textHeader"> {{ sentiero.sent }} </span>
                 </div>
-                <div>
-                <!-- le icone saranno da rendere dinamiche -->
-                  <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons_w/hiking.png" />
-                  <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons_w/biking.png" />
-                <!-- fine icone dinamiche -->
+                <div v-if="sentiero.chiuso != '1'" style="display:flex; justify-content:space-around;">
+                  <!-- le icone saranno da rendere dinamiche -->
+                    <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/running_bianco.svg" />
+                    <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/family_bianco.svg" />
+                    <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons/card/attivita/biking_bianco.svg" />
+                  <!-- fine icone dinamiche -->
 
                   <img class="img-fluid headerIcon" alt="difficolta"
-                    v-if="sentiero.df_s == 'EE'" src="../assets/images/icons_w/difficolta_EE.png"
+                    v-if="sentiero.df_s == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
                   />
                   <img class="img-fluid headerIcon" alt="difficolta"
-                    v-else-if="sentiero.df_s == 'E'" src="../assets/images/icons_w/difficolta_E.png"
+                    v-else-if="sentiero.df_s == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
                   />
                   <img class="img-fluid headerIcon" alt="difficolta"
-                    v-else-if ="sentiero.df_s == 'T'" src="../assets/images/icons_w/difficolta_T.png" 
+                    v-else-if ="sentiero.df_s == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
                   />
+                  
+                </div>
+                  <div v-else>
+                    <span class="m-3" style="font-size: smaller;">Attenzione: SENTIERO CHIUSO!</span> 
+                    <b-icon icon="exclamation-circle"></b-icon>
                   </div>
                 </div>
               </template>
               <b-card-text>
-                <h5>{{ sentiero.d_tpp }}</h5>
+                <h6>{{ sentiero.d_tpp }}</h6>
                   <!-- new Intl.NumberFormat('it-IT', { maximumSignificantDigits: 2 }).format({{sentiero.sv_l}}) -->
                 <!-- <p>
                   <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m
@@ -56,7 +63,7 @@
                 </div>
                 
               </b-card-text>
-              <template v-slot:footer>
+              <!-- <template v-slot:footer>
                 <div
                   :class="{
                     footerCardClose: sentiero.chiuso == '1'
@@ -64,7 +71,7 @@
                 >
                 <h6 v-if="sentiero.chiuso == '1' "><strong>Attenzione: SENTIERO CHIUSO!</strong></h6>
                 </div>
-              </template>
+              </template> -->
             </b-card>
           </b-card-group>
         </b-row>
@@ -132,12 +139,12 @@ h5{
 }
 
 .textHeader::before{
-  content:"\00a0 \00a0 \00a0 \00a0 \00a0";
+  content:"\00a0 \00a0 \00a0 \00a0";
   background-color: red;
 }
 
 .textHeader::after{
-  content:"\00a0 \00a0 \00a0 \00a0 \00a0";
+  content:"\00a0 \00a0 \00a0 \00a0";
   background-color: red;
 }
 
@@ -159,8 +166,16 @@ h5{
   margin: 0%;
 }
 
+.headerCardClosed{
+  background-color: black;
+  color: white;
+  padding: 5px;
+  margin: 0%;
+}
+
 .headerIcon {
   max-height: 32px;
+  max-width: 32px;
   padding: 0;
   margin: 0 2px;
 }
