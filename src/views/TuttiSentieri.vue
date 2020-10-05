@@ -19,28 +19,31 @@
                     headerCardClosed : sentiero.chiuso == '1'
                   }"
                 >
-                <div>
+                
+                <div v-if="sentiero.chiuso != '1'" style="display:flex; justify-content:space-around; width: 100%">
+                  <div>
                   <span class="textHeader"> {{ sentiero.sent }} </span>
+                  </div>
+                  <div>
+                    <!-- le icone saranno da rendere dinamiche -->
+                      <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/running_bianco.svg" />
+                      <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/family_bianco.svg" />
+                      <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons/card/attivita/biking_bianco.svg" />
+                    <!-- fine icone dinamiche -->
+                  </div>
+                  <div>
+                    <img class="img-fluid headerIcon" alt="difficolta"
+                      v-if="sentiero.df_s == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
+                    />
+                    <img class="img-fluid headerIcon" alt="difficolta"
+                      v-else-if="sentiero.df_s == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
+                    />
+                    <img class="img-fluid headerIcon" alt="difficolta"
+                      v-else-if ="sentiero.df_s == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
+                    />
+                  </div>
                 </div>
-                <div v-if="sentiero.chiuso != '1'" style="display:flex; justify-content:space-around;">
-                  <!-- le icone saranno da rendere dinamiche -->
-                    <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/running_bianco.svg" />
-                    <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/family_bianco.svg" />
-                    <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons/card/attivita/biking_bianco.svg" />
-                  <!-- fine icone dinamiche -->
-
-                  <img class="img-fluid headerIcon" alt="difficolta"
-                    v-if="sentiero.df_s == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
-                  />
-                  <img class="img-fluid headerIcon" alt="difficolta"
-                    v-else-if="sentiero.df_s == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
-                  />
-                  <img class="img-fluid headerIcon" alt="difficolta"
-                    v-else-if ="sentiero.df_s == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
-                  />
-                  
-                </div>
-                  <div v-else>
+                <div v-else>
                     <span class="m-3" style="font-size: smaller;">Attenzione: SENTIERO CHIUSO!</span> 
                     <b-icon icon="exclamation-circle"></b-icon>
                   </div>
@@ -56,6 +59,7 @@
                   <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
                 </p> -->
                 <div class="my-card-text">
+
                   <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m</div>
                   <div><span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span></div>
                   <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} </div>
@@ -174,8 +178,8 @@ h5{
 }
 
 .headerIcon {
-  max-height: 32px;
-  max-width: 32px;
+  height: 32px;
+  width: 32px;
   padding: 0;
   margin: 0 2px;
 }
