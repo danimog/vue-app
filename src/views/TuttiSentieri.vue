@@ -26,8 +26,8 @@
                   </div>
                   <div>
                     <!-- le icone saranno da rendere dinamiche -->
-                      <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/running_bianco.svg" />
-                      <img class="img-fluid headerIcon" alt="hiking" src="../assets/images/icons/card/attivita/family_bianco.svg" />
+                      <img class="img-fluid headerIcon" alt="running" src="../assets/images/icons/card/attivita/running_bianco.svg" />
+                      <img class="img-fluid headerIcon" alt="family" src="../assets/images/icons/card/attivita/family_bianco.svg" />
                       <img class="img-fluid headerIcon" alt="biking" src="../assets/images/icons/card/attivita/biking_bianco.svg" />
                     <!-- fine icone dinamiche -->
                   </div>
