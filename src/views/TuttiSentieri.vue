@@ -44,7 +44,7 @@
                   </div>
                 </div>
                 <div v-else>
-                    <span class="m-3" style="font-size: smaller;">Attenzione: SENTIERO CHIUSO!</span> 
+                    <span class="m-3" style="font-size: smaller; font-weight: bold;">Attenzione: SENTIERO CHIUSO!</span> 
                     <b-icon icon="exclamation-circle"></b-icon>
                   </div>
                 </div>
@@ -59,11 +59,12 @@
                   <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}
                 </p> -->
                 <div class="my-card-text">
-
-                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{ sentiero.sv_l }} m</div>
-                  <div><span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{ sentiero.dslv }} m+</span></div>
-                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /> {{ sentiero.t_a }} </div>
-                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /> {{ sentiero.t_r }}</div>
+                  <div><img class="img-fluid headerIcon" alt="sac_scale" src="../assets/images/icons/card/altimetria/costa_mezzacosta.svg" /></div>
+                  <div><img class="img-fluid headerIcon" alt="dislivello" src="../assets/images/icons/card/dislivello/dislivello2.svg" /></div>
+                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /><p> {{ sentiero.sv_l }} m</p></div>
+                  <div><span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /><p> {{ sentiero.dslv }} m+</p></span></div>
+                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /><p> {{ sentiero.t_a }} </p></div>
+                  <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /><p> {{ sentiero.t_r }}</p></div>
                 </div>
                 
               </b-card-text>
@@ -186,7 +187,7 @@ h5{
 
 .my-card-text{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .footerCardClose {
