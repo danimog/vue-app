@@ -8,8 +8,9 @@
               class="mycard"
               v-for="sentiero in sentieri"
               :key="sentiero.sent"
-            >
+            > <!-- il v-for cicla i "sentieri" letti dal json -->
               <template v-slot:header>
+                <!-- template header: la classe è modificata in base al dato letto dal valore di df_s -->
                 <div
                   style="display: flex; justify-content: space-around;"
                   :class="{
@@ -32,6 +33,7 @@
                     <!-- fine icone dinamiche -->
                   </div>
                   <div>
+                    <!-- il v-if legge nuovamente il dato df_s (che forse potrebbe essere messo in una variabile) per caricare le icone -->
                     <img class="img-fluid headerIcon" alt="difficolta"
                       v-if="sentiero.df_s == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
                     />
@@ -62,6 +64,7 @@
                   <div><img class="img-fluid headerIcon" alt="sac_scale" src="../assets/images/icons/card/altimetria/costa_mezzacosta.svg" /></div>
                   <div><img class="img-fluid headerIcon" alt="dislivello" src="../assets/images/icons/card/dislivello/dislivello2.svg" /></div>
                   <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /><p> {{ sentiero.sv_l }} m</p></div>
+                  <!-- in alcuni casi nel json non c'è il dato .dslv - lo controllo e se non esiste non visualizzo il div -->
                   <div><span v-if="sentiero.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /><p> {{ sentiero.dslv }} m+</p></span></div>
                   <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /><p> {{ sentiero.t_a }} </p></div>
                   <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /><p> {{ sentiero.t_r }}</p></div>
@@ -107,6 +110,7 @@ h5{
   margin-bottom: 1rem;
 }
 
+/* cambiare i colori in base a quanto previsto dal disegno grafico */
 .coloreEE {
   color: orange;
 }

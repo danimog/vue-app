@@ -2,10 +2,10 @@
   <div class="my-tabella" style="margin: 0 auto;">
     <b-table 
       responsive
-      :items="sentieri" 
+      :items="sentieri"  
       :fields="fields"
       :tbody-tr-class="rowClass"
-    >
+    > <!-- items e fields prendono i campi da data() -->
       <template v-slot:cell(d_tpp)="data">
         {{ data.value.toUpperCase() }}
       </template>
@@ -25,7 +25,7 @@ import listaSentieri from "../assets/json/sentieri.json";
 
 export default {
   data() {
-    return {
+    return { 
       fields: [{ key: 'sgnv', label: 'Sentiero' }, { key: 'df_s', label: 'Difficoltà' }, { key: 'd_tpp', label: 'Nome sentiero' }, {key:'sent', label:'Utilizzo'}],
       sentieri: listaSentieri
     };
@@ -57,6 +57,7 @@ export default {
   }  
 }
 
+/* se il dispositivo è oltre i 601px la tabella è solo il 70% della larghezza */
 @media only screen and (min-width: 601px) {
   .my-tabella{
     width: 70%;

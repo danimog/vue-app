@@ -5,7 +5,7 @@
       <b-container fluid="md">
         <b-row class="riga">
           <b-col class="my-b-col" cols="4" sm="4" md="4" lg="4">
-            <b-link href="#">
+            <b-link href="#"> <!-- il link sarà da modificare o eliminare -->
               <div>
                 <img
                   class="img-fluid w-80"
@@ -14,7 +14,7 @@
                 />
               </div>
             </b-link>
-            <div><span class="h4">Hiking</span></div>
+            <div><span class="h4">Hiking</span></div> <!-- la scritta Hiking sarà letta da un json o da db -->
           </b-col>
           <b-col class="my-b-col" cols="4" sm="4" md="4" lg="4">
             <b-link href="#">
