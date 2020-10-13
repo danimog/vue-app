@@ -51,6 +51,14 @@
         <section class="descrizione">
             <img class="img-fluid headerIcon" alt="descrizione sentiero" src="../assets/images/icons/sentiero/descrizione_sentieri/descrizione.svg" />
             <span v-html="dettaglio.tx" class="text-left"></span>
+            
+            <div v-for="(nodo, index) in nodi" :key=index>
+                {{nodo.properties.c_s}}
+                <!-- <div v-if="nodo.properites.c_s != null && nodo.properites.c_s == '590'">
+                    {{nodo.properties.tx}}
+                </div> -->
+            </div>
+
         </section>
     </div>
 </template>
@@ -58,18 +66,24 @@
 <script>
 import listaSentieri from "../assets/json/sentieri.json";
 import dettaglioSentiero from "../assets/json/testi.json";
+import nodiTratte from "../assets/json/nodi_tratte.json";
 
 export default {
   data() {
     return { 
         sentieri: listaSentieri[0],
-        dettaglio: dettaglioSentiero[31]
+        dettaglio: dettaglioSentiero[31],
+        nodi: nodiTratte
     };
   }
 };
 </script>
 
 <style scoped>
+.header{
+    margin-top: 1rem;
+}
+
 .descrizione{
     text-align: left;
 }
