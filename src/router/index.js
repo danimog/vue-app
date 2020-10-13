@@ -30,6 +30,12 @@ const routes = [
     name: "SceltaPaesi",
     component: () =>
       import(/* webpackChunkName: "sentieri" */ "../views/SceltaPaesi.vue")
+  },
+  {
+    path: "/dettaglioSentieri",
+    name: "DettaglioSentieri",
+    component: () =>
+      import(/* webpackChunkName: "dettaglio" */ "../views/DettaglioSentieri.vue")
   }
 ];
 

@@ -5,7 +5,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/listaSentieri">Tutti i sentieri</router-link> |
       <router-link to="/tuttiSentieri">Lista sentieri</router-link> |
-      <router-link to="/sceltaPaesi">Seleziona Paesi</router-link>
+      <router-link to="/sceltaPaesi">Seleziona Paesi</router-link> |
+      <router-link to="/dettaglioSentieri">Dettaglio Sentieri</router-link>
     </div>
     <router-view />
   </div>
