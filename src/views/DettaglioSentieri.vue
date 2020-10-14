@@ -53,20 +53,26 @@
             <span v-html="dettaglio.tx" class="text-left"></span>
             <ul>
             <div v-for="(nodo, index) in nodi" :key=index>
-                <!-- {{nodo.properties.tx}} -->
+              <li v-if="nodo.properties.c_s == '590'">
+                <b>{{nodo.properties.nm_t}}</b> | 
+                <span>
+                  <img class="img-fluid headerIcon" alt="difficolta"
+                      v-if="nodo.properties.sac == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
+                  />
+                  <img class="img-fluid headerIcon" alt="difficolta"
+                    v-else-if="nodo.properties.sac == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
+                  />
+                  <img class="img-fluid headerIcon" alt="difficolta"
+                    v-else-if ="nodo.properties.sac == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
+                  />
                   
-                  <li v-if="nodo.properties.c_s == '590'">
-                    <b>{{nodo.properties.nm_t}}</b> | 
-                    <span>
-                      sac: {{nodo.properties.sac}} |
-                      incl: {{nodo.properties.incl}} |
-                      lung: {{nodo.properties.l_3m}} |
-                      disl: {{nodo.properties.dsl}} 
-                    <br>
-                    {{nodo.properties.tx}}
-                    </span>
-                  </li>
-                
+                  incl: {{nodo.properties.incl}} |
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{nodo.properties.l_3m}} m
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{nodo.properties.dsl}} m+
+                <br>
+                {{nodo.properties.tx}}
+                </span>
+              </li>
             </div>
             </ul>
         </section>
