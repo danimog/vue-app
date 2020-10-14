@@ -51,14 +51,24 @@
         <section class="descrizione">
             <img class="img-fluid headerIcon" alt="descrizione sentiero" src="../assets/images/icons/sentiero/descrizione_sentieri/descrizione.svg" />
             <span v-html="dettaglio.tx" class="text-left"></span>
-            
+            <ul>
             <div v-for="(nodo, index) in nodi" :key=index>
-                {{nodo.properties.c_s}}
-                <!-- <div v-if="nodo.properites.c_s != null && nodo.properites.c_s == '590'">
+                <!-- {{nodo.properties.tx}} -->
+                  
+                  <li v-if="nodo.properties.c_s == '590'">
+                    <b>{{nodo.properties.nm_t}}</b> | 
+                    <span>
+                      sac: {{nodo.properties.sac}} |
+                      incl: {{nodo.properties.incl}} |
+                      lung: {{nodo.properties.l_3m}} |
+                      disl: {{nodo.properties.dsl}} 
+                    <br>
                     {{nodo.properties.tx}}
-                </div> -->
+                    </span>
+                  </li>
+                
             </div>
-
+            </ul>
         </section>
     </div>
 </template>
@@ -75,7 +85,12 @@ export default {
         dettaglio: dettaglioSentiero[31],
         nodi: nodiTratte
     };
-  }
+  },
+  // methods: {
+  //   nodo_tratte_met(item, type) {
+      
+  //   }
+  // }
 };
 </script>
 
