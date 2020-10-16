@@ -19,3 +19,28 @@ body{
     /* border: 1px solid darkgrey; */
     
 }
+
+.my-table-danger,
+.my-table-danger > th,
+.my-table-danger > td{
+    background-color: #D31D27;
+}
+
+.my-table-warning,
+.my-table-warning > th,
+.my-table-warning > td{
+  background-color: #F7AA16;
+}
+
+.my-table-success,
+.my-table-success > th,
+.my-table-success > td{
+  background-color: #3A8480;
+}
+
+.my-table-info,
+.my-table-info > th,
+.my-table-info > td{
+  background-color:  #65ABCE;
+}
+
