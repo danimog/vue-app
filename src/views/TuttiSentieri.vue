@@ -112,13 +112,16 @@ h5{
 
 /* cambiare i colori in base a quanto previsto dal disegno grafico */
 .coloreEE {
-  color: orange;
+  /* color: orange; */
+  color: #F7AA16;
 }
 .coloreE {
-  color: green;
+  /* color: green; */
+  color: #3A8480;
 }
 .coloreT {
-  color: lightskyblue;
+  /* color: lightskyblue; */
+  color: #65ABCE;
 }
 
 .card-deck .card {
@@ -158,19 +161,26 @@ h5{
 }
 
 .headerCardT {
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
+  background-color: #65ABCE;
+
   padding: 5px;
   margin: 0%;
 }
 
 .headerCardE {
-  background-color: green;
+  /* background-color: green; */
+  background-color: #3A8480;
+
+
   padding: 5px;
   margin: 0%;
 }
 
 .headerCardEE {
-  background-color: orange;
+  /* background-color: orange; */
+  background-color: #F7AA16;
+
   padding: 5px;
   margin: 0%;
 }
