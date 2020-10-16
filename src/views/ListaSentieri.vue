@@ -17,17 +17,25 @@
       </template>
       
     </b-table>
+    <!-- a: {{info.data.features[0].sent}} -->
+    <div v-for="(i, index) in info.data.features" :key=index>
+      {{i.sent}}<br>
+      <!-- {{index}} -->
+    </div>
+
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import listaSentieri from "../assets/json/sentieri.json";
 
 export default {
   data() {
     return { 
       fields: [{ key: 'sgnv', label: 'Sentiero' }, { key: 'df_s', label: 'Difficoltà' }, { key: 'd_tpp', label: 'Nome sentiero' }, {key:'sent', label:'Utilizzo'}],
-      sentieri: listaSentieri
+      sentieri: listaSentieri,
+      info: null
     };
   },
   methods: {
@@ -38,6 +46,11 @@ export default {
         if (item.df_s === 'E') return 'my-table-success'
         if (item.df_s === 'T') return 'my-table-info' 
       }
+  },
+  mounted () {
+    axios
+      .get('http://maps.t5t.it/jsdata/elenco_sentieri.json')
+      .then(response => (this.info = response))
   }
 };
 </script>
