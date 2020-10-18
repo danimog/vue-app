@@ -1,8 +1,10 @@
 <template>
+
   <div class="my-tabella" style="margin: 0 auto;">
+
     <b-table 
       responsive
-      :items="sentieri"  
+      :items="info.data.features"  
       :fields="fields"
       :tbody-tr-class="rowClass"
     > <!-- items e fields prendono i campi da data() -->
@@ -18,10 +20,9 @@
       
     </b-table>
     <!-- a: {{info.data.features[0].d_tpp}} -->
-    <div v-for="(i, index) in info.data.features" :key=index>
+    <!-- <div v-for="(i, index) in info.data.features" :key=index>
       {{i.sent}}<br>
-      <!-- {{index}} -->
-    </div>
+    </div> -->
 
   </div>
 </template>
@@ -33,7 +34,7 @@ import listaSentieri from "../assets/json/sentieri.json";
 export default {
   data() {
     return { 
-      fields: [{ key: 'sgnv', label: 'Sentiero' }, { key: 'df_s', label: 'Difficoltà' }, { key: 'd_tpp', label: 'Nome sentiero' }, {key:'sent', label:'Utilizzo'}],
+      fields: [{ key: 'sgnv', label: '#Sentiero' }, { key: 'df_s', label: 'Difficoltà' }, { key: 'd_tpp', label: 'Nome sentiero' }, {key:'sent', label:'Utilizzo'}],
       sentieri: listaSentieri,
       info: null
     };
