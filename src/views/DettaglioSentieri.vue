@@ -20,40 +20,70 @@
         </section>
         <section class="header">
             <b-row>
-                <b-col cols="3"><b>{{sentieri.sent}}</b></b-col>
-                <b-col cols="9" class="text-left"><b>{{sentieri.d_tpp}}</b></b-col>
+                <!-- <b-col cols="3"><b>{{sentieri.sent}}</b></b-col> -->
+                <b-col cols="3"><b>{{path.data.features[12].sent}}</b></b-col>
+                <!-- <b-col cols="9" class="text-left"><b>{{sentieri.d_tpp}}</b></b-col> -->
+                <b-col cols="9" class="text-left"><b>{{path.data.features[12].d_tpp}}</b></b-col>
             </b-row>
             <b-row class="mt-3">
                 <b-col cols="12" style="display:flex; justify-content: space-around;">
                     <div>
                     <!-- il v-if legge nuovamente il dato df_s (che forse potrebbe essere messo in una variabile) per caricare le icone -->
                     <img class="img-fluid headerIcon" alt="difficolta"
-                      v-if="sentieri.df_s == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
+                      v-if="path.data.features[12].df_s == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
                     />
                     <img class="img-fluid headerIcon" alt="difficolta"
-                      v-else-if="sentieri.df_s == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
+                      v-else-if="path.data.features[12].df_s == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
                     />
                     <img class="img-fluid headerIcon" alt="difficolta"
-                      v-else-if ="sentieri.df_s == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
+                      v-else-if ="path.data.features[12].df_s == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
                     />
                   </div>
                     <div><img class="img-fluid headerIcon" alt="sac_scale" src="../assets/images/icons/card/altimetria/costa_mezzacosta.svg" /></div>
                     <div><img class="img-fluid headerIcon" alt="dislivello" src="../assets/images/icons/card/dislivello/dislivello2.svg" /></div>
-                    <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /><p> {{ sentieri.sv_l }} m</p></div>
+                    <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /><p> {{ path.data.features[12].sv_l }} m</p></div>
                   <!-- in alcuni casi nel json non c'è il dato .dslv - lo controllo e se non esiste non visualizzo il div -->
-                    <div><span v-if="sentieri.dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /><p> {{ sentieri.dslv }} m+</p></span></div>
-                    <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /><p> {{ sentieri.t_a }} </p></div>
-                    <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /><p> {{ sentieri.t_r }}</p></div>
+                    <div><span v-if="path.data.features[12].dslv > 0"><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /><p> {{ path.data.features[12].dslv }} m+</p></span></div>
+                    <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_a.png" /><p> {{ path.data.features[12].t_a }} </p></div>
+                    <div><img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/time_ritorno.png" /><p> {{ path.data.features[12].t_r }}</p></div>
                
                 </b-col>
             </b-row>
         </section>
         <section class="descrizione">
-            <img class="img-fluid headerIcon" alt="descrizione sentiero" src="../assets/images/icons/sentiero/descrizione_sentieri/descrizione.svg" />
-            <span v-html="dettaglio.tx" class="text-left"></span>
+          <div v-for="(det,ix) in detail.data.features" :key=ix>
+            
+            <span 
+              v-if="det.sent == path.data.features[12].sent"
+              v-html="det.tx" class="text-left">
+            >
+            </span>
+            
+          </div>
             <ul>
-            <div v-for="(nodo, index) in nodi" :key=index>
-              <li v-if="nodo.properties.c_s == '590'">
+            <div v-for="(nodo, index) in nodiPath" :key=index>
+              <div v-for="(n,i) in nodo.features" :key=i>
+                <li v-if="n.properties.c_s == path.data.features[12].sent">
+                  <b>{{n.properties.nm_t}}</b>
+                  <span>
+                  <img class="img-fluid headerIcon" alt="difficolta"
+                      v-if="n.properties.sac == 'EE'" src="../assets/images/icons/card/difficolta/difficolta_EE.svg"
+                  />
+                  <img class="img-fluid headerIcon" alt="difficolta"
+                    v-else-if="n.properties.sac == 'E'" src="../assets/images/icons/card/difficolta/difficolta_E.svg"
+                  />
+                  <img class="img-fluid headerIcon" alt="difficolta"
+                    v-else-if ="n.properties.sac == 'T'" src="../assets/images/icons/card/difficolta/difficolta_T.svg" 
+                  />
+                  incl: {{n.properties.incl}} |
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/lunghezza.png" /> {{n.properties.l_3m}} m
+                  <img class="img-fluid headerIcon" alt="difficolta" src="../assets/images/icons_w/altimetria.png" /> {{n.properties.dsl}} m+
+                <br>
+                {{n.properties.tx}}
+                </span>  
+                </li>
+              </div>
+              <!-- <li v-if="nodo.properties.c_s == path.data.features[12].sent">
                 <b>{{nodo.properties.nm_t}}</b> | 
                 <span>
                   <img class="img-fluid headerIcon" alt="difficolta"
@@ -72,7 +102,7 @@
                 <br>
                 {{nodo.properties.tx}}
                 </span>
-              </li>
+              </li> -->
             </div>
             </ul>
         </section>
@@ -80,6 +110,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import listaSentieri from "../assets/json/sentieri.json";
 import dettaglioSentiero from "../assets/json/testi.json";
 import nodiTratte from "../assets/json/nodi_tratte.json";
@@ -89,14 +120,24 @@ export default {
     return { 
         sentieri: listaSentieri[0],
         dettaglio: dettaglioSentiero[31],
-        nodi: nodiTratte
+        nodi: nodiTratte,
+        path: null,
+        detail: null,
+        nodiPath: null
     };
   },
-  // methods: {
-  //   nodo_tratte_met(item, type) {
-      
-  //   }
-  // }
+  mounted () {
+    axios
+      .get('http://maps.t5t.it/jsdata/elenco_sentieri.json')
+      .then(response => (this.path = response)),
+    axios
+      .get('http://maps.t5t.it/jsdata/testi.json.it')
+      .then(response => (this.detail = response)),
+    axios
+      .get('http://maps.t5t.it/jsdata/nodi_tratte_iti_testi.json.it')
+      .then(response => (this.nodiPath = response))
+  }
+
 };
 </script>
 
