@@ -1,14 +1,15 @@
 <template>
   <div id="home" class="container">
+    
     <div class="mt-3 mb-3">
       <b-container fluid="sm">
         <b-row class="riga">
           <b-card-group deck>
             <b-card
               class="mycard"
-              v-for="sentiero in sentieri"
+              v-for="sentiero in sentieri.data.features"
               :key="sentiero.sent"
-            > <!-- il v-for cicla i "sentieri" letti dal json -->
+            > <!-- il v-for cicla i "sentieri" letti dal json andando a prendere la voce corretta -->
               <template v-slot:header>
                 <!-- template header: la classe è modificata in base al dato letto dal valore di df_s -->
                 <div
@@ -89,13 +90,21 @@
 </template>
 
 <script>
-import listaSentieri from "../assets/json/sentieri.json";
+// import listaSentieri from "../assets/json/sentieri.json";
+// sentieri: listaSentieri,
+import axios from 'axios';
 
 export default {
   data() {
     return {
-      sentieri: listaSentieri
+      
+      sentieri: null
     };
+  },
+  mounted () {
+    axios
+      .get('http://maps.t5t.it/jsdata/elenco_sentieri.json')
+      .then(response => (this.sentieri = response))
   }
 };
 </script>

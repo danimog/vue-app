@@ -17,7 +17,7 @@
       </template>
       
     </b-table>
-    <!-- a: {{info.data.features[0].sent}} -->
+    <!-- a: {{info.data.features[0].d_tpp}} -->
     <div v-for="(i, index) in info.data.features" :key=index>
       {{i.sent}}<br>
       <!-- {{index}} -->
